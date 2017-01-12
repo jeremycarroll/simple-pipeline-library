@@ -8,7 +8,7 @@ class HelloWorld implements Serializable {
    void run(String nodeRestrictions) {
       steps.node(nodeRestrictions) {
           steps.stage('Checkout') {
-            steps.checkout()
+            steps.checkout(steps.scm)
           }
           steps.stage('Hello Moon') {
             steps.echo('Hello World')
