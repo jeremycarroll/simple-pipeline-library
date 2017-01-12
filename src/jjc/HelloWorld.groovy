@@ -5,9 +5,14 @@ class HelloWorld implements Serializable {
    HelloWorld(steps) {
       this.steps = steps
    }
-   void run() {
-      steps.stage('Hello Moon') {
-        steps.echo('Hello World')
+   void run(String nodeRestrictions) {
+      steps.node(nodeRestrictions) {
+          steps.stage('Checkout') {
+            steps.checkout()
+          }
+          steps.stage('Hello Moon') {
+            steps.echo('Hello World')
+          }
       }
    }
 }
